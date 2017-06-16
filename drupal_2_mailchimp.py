@@ -13,13 +13,13 @@ from hashlib import md5
 
 # mailchimp api key
 # @TODO get api key from environment var
-mailchimp_api_key = "0f8b6badf9df7076ad26563ebd6b2761-us2"
+mailchimp_api_key = "YOUR_API_KEY"
 
 # note how the api key ends with "us2" (the data center of your accout)
 data_center = mailchimp_api_key.split("-")[1]
 
 # mailchimp list id
-list_id = "cdb710ff47"
+list_id = "YOUR_LIST_ID"
 
 # http headers
 headers = {'content-type': 'application/json'}
