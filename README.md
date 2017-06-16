@@ -2,15 +2,15 @@
 
 This python script aims at extracting email addresses from a Drupal site. The operation is facilitated by the Drupal Shell command utility `drush`, the output of which is parsed and saved for some basic cleanup e.g. excluding emails that contain the term `localhost`. In fact, the script can be used to post any list of email addresses to a MailChimp list. The benefit is a lightweight solution compared to using a full blown MailChimp Drupal module.
 
-Code was written for a use case where we only needed a current list of all content authors in a Drupal site. The code gets email addresses from a Drupal site and saves them to a Python list. Second, it makes a call to the MailChimp API and gets existing emails on the target list (in any). If a given email exists on the MailChimp list; but does not on the source list, the email address is removed from the MailChimp list assuming (for our use case) that the users is no longer a Drupal content author. The script also checks for differential emails (new users) to be uploaded; then it does a POST to the MailChimp API. The initial run of this script can take few seconds longer that subsequent runs as it needs to upload all emails for the first run. It may take longer or less time depending on how large or small your email list is.
+Code was written for a use case where we only needed a current list of all content authors in a Drupal site. The code gets email addresses from a Drupal site and saves them to a Python list. Second, it makes a call to the MailChimp API and gets existing emails on the target list (if any). If a given email exists on the MailChimp list; but does not on the source list, the email address is removed from the MailChimp list assuming (for our use case) that the users is no longer a Drupal content author. The script also checks for differential emails (new users) to be uploaded; then it does a POST to the MailChimp API. The initial run of this script can take few seconds longer that subsequent runs as it needs to upload all emails for the first run. It may take longer or less time depending on how large or small your email list is.
 
 
 
 # Requirements:
 
 - MailChimp:
-  - Account.
-  - List to save email address to.
+  - An account.
+  - List to save email addresses to.
   - List ID e.g. `dlk1j34h2`.
 - API key to access MailChimp.
 - A working Drush on the source Drupal site.
